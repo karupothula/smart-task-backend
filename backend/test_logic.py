@@ -15,6 +15,7 @@ def test_finance_medium_priority():
     assert prio == "medium"
     assert "Check budget" in actions
 
+
 def test_technical_low_priority():
     desc = "Fix small bug in header"
     cat, prio, entities, actions = analyze_task(desc)

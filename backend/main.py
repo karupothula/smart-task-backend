@@ -182,6 +182,7 @@ def update_task(task_id: str, updates: TaskUpdate):
     if not current_res: raise HTTPException(status_code=404, detail="Task not found")
     old_task = current_res[0]
 
+
     # 2. Prepare payload (filter out None values)
     data = {k: v for k, v in updates.dict().items() if v is not None}
     if "due_date" in data and data["due_date"]: data["due_date"] = data["due_date"].isoformat()
@@ -201,6 +202,7 @@ def update_task(task_id: str, updates: TaskUpdate):
     log_history(task_id, action, old_val=old_task, new_val=new_task)
 
     return new_task
+
 
 @app.delete("/api/tasks/{task_id}")
 def delete_task(task_id: str):

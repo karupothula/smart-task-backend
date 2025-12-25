@@ -14,6 +14,7 @@ class TaskBase(BaseModel):
     category: Optional[str] = None
     priority: Optional[str] = None
 
+
 class TaskUpdate(BaseModel):
     """
     Model for PATCH requests. 

@@ -33,6 +33,7 @@ def analyze_task(text_input: str):
     elif any(w in text_lower for w in ["soon", "tomorrow", "week", "review", "medium"]):
         priority = "medium"
 
+
     # --- 3. ENTITY EXTRACTION (Regex) ---
     extracted_entities = {"dates": [], "people": []}
 
@@ -41,6 +42,7 @@ def analyze_task(text_input: str):
     people_pattern = re.compile(r'(?:with|by|assign to|contact|ask)\s+([a-zA-Z]+)', re.IGNORECASE)
     matches = people_pattern.findall(text_input)
     
+
     # Stopword Filtering: Remove false positives like "tomorrow" or "the" captured as names.
     date_keywords = ["today", "tomorrow", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     clean_people = []
@@ -51,6 +53,7 @@ def analyze_task(text_input: str):
 
     # Extract Dates: Simple keyword matching
     extracted_entities["dates"] = [word for word in text_lower.split() if word in date_keywords]
+
 
     # --- 4. ACTION SUGGESTION ENGINE ---
     # Maps category to actionable steps to help the user start immediately.
