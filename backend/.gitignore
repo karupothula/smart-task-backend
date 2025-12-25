@@ -1,0 +1,23 @@
+# FILENAME: backend/.gitignore
+
+# --- PYTHON CACHE ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- VIRTUAL ENVIRONMENTS ---
+env/
+venv/
+.venv/
+.Python
+pip-log.txt
+
+# --- TESTING ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- SECURITY (CRITICAL) ---
+.env
+.env.example

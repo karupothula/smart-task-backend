@@ -1,0 +1,36 @@
+# FILENAME: mobile/.gitignore
+
+# --- FLUTTER / DART ESSENTIALS ---
+assets/.env
+build/
+.dart_tool/
+.pub-cache/
+.packages
+.pub/
+coverage/
+doc/api/
+
+# --- ANDROID SPECIFIC ---
+android/local.properties
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/key.properties
+
+# --- IOS / MAC SPECIFIC ---
+ios/Flutter/.last_build_id
+ios/.symlinks/
+ios/Pods/
+.swiftpm/
+
+
+# --- PLUGINS & MIGRATIONS ---
+.flutter-plugins
+.flutter-plugins-dependencies
+migrate_working_dir/
+
+
+# --- CRASH & OBSCURATION ---
+app.*.symbols
+app.*.map.json
