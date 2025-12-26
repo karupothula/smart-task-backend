@@ -18,7 +18,7 @@ The project consists of two main components communicating via RESTful APIs:
 
 ```mermaid
 graph LR
-    A[Mobile App\nFlutter] -- HTTP Requests --> B[Backend API\nPython]
+    A[Mobile App<br>Flutter] -- HTTP Requests --> B[Backend API<br>Python]
     B -- Queries --> C[(Database)]
     B -- Responses --> A
 ```
@@ -28,9 +28,19 @@ graph LR
 ## 📂 Repository Structure
 
 ```text
-/
-├── backend/   # Python source code, API logic, database schemas
-└── mobile/    # Flutter app code, assets, build configs
+.
+├── README.md            # Project landing page & architecture overview
+├── backend/             # Python Backend (API & Logic)
+│   ├── main.py          # Application entry point
+│   ├── logic.py         # Business logic & data processing
+│   ├── schemas.py       # Data validation models
+│   ├── requirements.txt # Python dependencies
+│   └── README.md        # Backend setup guide
+└── mobile/              # Flutter Frontend (Mobile App)
+    ├── lib/             # Dart source code
+    ├── assets/          # Images & Environment config
+    ├── pubspec.yaml     # Flutter dependencies
+    └── README.md        # Mobile setup guide
 ```
 
 ---
@@ -43,7 +53,6 @@ graph LR
 - **Tools:** Git, Pytest  
 
 ---
-
 
 ## 🚀 Getting Started
 
@@ -58,9 +67,6 @@ Navigate to the `backend/` directory to install Python dependencies and start th
 
 👉 **Read:** [`backend/README.md`](backend/README.md)
 
----
-
-
 ### 2️⃣ Set up the Mobile App
 
 Navigate to the `mobile/` directory to install Flutter packages and run the emulator.
@@ -68,7 +74,6 @@ Navigate to the `mobile/` directory to install Flutter packages and run the emul
 👉 **Read:** [`mobile/README.md`](mobile/README.md)
 
 ---
-
 
 ## 🔐 Configuration (Environment Variables)
 
