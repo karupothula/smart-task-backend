@@ -22,6 +22,15 @@ if not url or not key:
 supabase: Client = create_client(url, key)
 
 app = FastAPI()
+# --- NEW: HEALTH CHECK (Required for Render) ---
+@app.get("/healthz")
+def health_check():
+    return {"status": "ok", "service": "smart-task-backend"}
+
+# --- NEW: ROOT URL (Fixes 404) ---
+@app.get("/")
+def read_root():
+    return {"message": "Smart Task Backend is Running!"}
 
 # --- UTILITY: RETRY LOGIC (RESILIENCE PATTERN) ---
 # Network calls to cloud databases (Supabase) can occasionally timeout or fail.
@@ -203,8 +212,15 @@ def update_task(task_id: str, updates: TaskUpdate):
 
     return new_task
 
-
 @app.delete("/api/tasks/{task_id}")
 def delete_task(task_id: str):
     safe_execute(supabase.table("tasks").delete().eq("id", task_id))
     return {"message": "Task deleted"}
+
+# --- REQUIRED: ENTRY POINT FOR RENDER ---
+if __name__ == "__main__":
+    import uvicorn
+    # Render assigns a dynamic PORT variable. 
+    # We use os.environ.get("PORT") to ensure we listen on the correct port.
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
