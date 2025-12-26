@@ -95,7 +95,7 @@ Instead of using slow and costly LLMs (like GPT-4), the backend uses a determini
 
 ### **1. Clone the Repository**
 ```Bash
-git clone [https://github.com/karupothula/smart-task-manager.git]
+git clone [https://github.com/karupothula/smart-task-manager.git](https://github.com/karupothula/smart-task-manager.git)
 cd smart-task-manager
 ```
 
