@@ -16,21 +16,21 @@ def analyze_task(text_input: str):
     # If a match is found, we stop. This prevents "Safety Inspection" being misclassified as "General".
     category = "general"
     
-    if any(w in text_lower for w in ["safety", "hazard", "inspection", "compliance", "ppe", "danger"]):
-        category = "safety"
-    elif any(w in text_lower for w in ["bug", "fix", "error", "server", "deploy", "database", "api"]):
-        category = "technical"
-    elif any(w in text_lower for w in ["invoice", "budget", "cost", "price", "$", "bill", "audit"]):
-        category = "finance"
-    elif any(w in text_lower for w in ["meeting", "schedule", "call", "zoom", "deadline", "calendar"]):
+    if any(w in text_lower for w in ["meeting", "schedule", "call", "deadline", "calendar", "appointment"]):
         category = "scheduling"
+    elif any(w in text_lower for w in ["invoice", "budget", "cost", "bill", "payment", "expense"]):
+        category = "finance"
+    elif any(w in text_lower for w in ["bug", "fix", "error", "install", "repair", "maintain"]):
+        category = "technical"
+    elif any(w in text_lower for w in ["safety", "hazard", "inspection", "compliance", "ppe"]):
+        category = "safety"
     
     # --- 2. PRIORITY DETECTION ---
     # Keywords mapped to urgency levels.
     priority = "low"
-    if any(w in text_lower for w in ["urgent", "asap", "immediate", "critical", "high", "deadline"]):
+    if any(w in text_lower for w in ["urgent", "asap", "immediate", "critical", "high", "emergency", "today", "sos"]):
         priority = "high"
-    elif any(w in text_lower for w in ["soon", "tomorrow", "week", "review", "medium"]):
+    elif any(w in text_lower for w in ["soon", "important", "this week", "tomorrow"]):
         priority = "medium"
 
 
@@ -58,10 +58,10 @@ def analyze_task(text_input: str):
     # --- 4. ACTION SUGGESTION ENGINE ---
     # Maps category to actionable steps to help the user start immediately.
     actions_map = {
-        "scheduling": ["Block calendar", "Send invite", "Prepare agenda"],
-        "finance": ["Check budget", "Get approval", "Generate invoice"],
-        "technical": ["Diagnose issue", "Check resources", "Assign technician"],
-        "safety": ["Conduct inspection", "File report", "Update checklist"],
+        "scheduling": ["Block calendar", "Send invite", "Prepare agenda", "Set reminder"],
+        "finance": ["Check budget", "Get approval", "Generate invoice", "Update records"],
+        "technical": ["Diagnose issue", "Check resources", "Assign technician", "Document fix"],
+        "safety": ["Conduct inspection", "File report", "Update checklist", "Update checklist"],
         "general": ["Review task", "Set due date", "Prioritize"]
     }
     suggested_actions = actions_map.get(category, ["Review task"])
