@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 > **Live Backend API:** [https://smbackend-xqvb.onrender.com/docs](https://smbackend-xqvb.onrender.com/docs)  
-> **Download Android App:** [https://github.com/karupothula/smart-task-backend/releases/tag/v1.0.0](https://github.com/karupothula/smart-task-backend/releases/tag/v1.0.0)
+> **Download Android App:** [Smart-Task-Manager.apk](https://github.com/karupothula/smart-task-backend/releases/download/v1.0.1/Smart-Task-Manager.apk)
 
 ---
 
@@ -95,7 +95,7 @@ Instead of using slow and costly LLMs (like GPT-4), the backend uses a determini
 
 ### **1. Clone the Repository**
 ```Bash
-git clone [https://github.com/karupothula/smart-task-manager.git](https://github.com/karupothula/smart-task-manager.git)
+git clone [https://github.com/karupothula/smart-task-manager.git]
 cd smart-task-manager
 ```
 
